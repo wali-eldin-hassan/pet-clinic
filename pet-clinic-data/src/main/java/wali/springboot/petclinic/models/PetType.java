@@ -1,4 +1,4 @@
-package wali.springbooot.petclinic.models;
+package wali.springboot.petclinic.models;
 
 public class PetType {
 
