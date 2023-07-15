@@ -1,4 +1,4 @@
-package wali.springbooot.petclinic;
+package wali.springboot.petclinic;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
