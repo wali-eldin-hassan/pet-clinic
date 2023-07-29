@@ -4,7 +4,7 @@ package wali.springboot.petclinic.models;
 /**
  * Created by Wali
  **/
-public class Person {
+public class Person extends  BaseEntity {
     private  String firstName;
     private  String lastName;
 
