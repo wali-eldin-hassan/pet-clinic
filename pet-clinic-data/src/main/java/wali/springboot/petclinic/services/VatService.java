@@ -5,10 +5,6 @@ import wali.springboot.petclinic.models.Vet;
 
 import java.util.Set;
 
-public interface VatService {
-    Vet findById(Long id);
+public interface VatService  extends  CrudService<Vet,Long>{
 
-    Vet save(Vet vet);
-
-    Set<Vet> findAll();
 }
