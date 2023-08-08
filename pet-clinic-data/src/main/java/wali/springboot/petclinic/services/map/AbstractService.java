@@ -1,6 +1,5 @@
 package wali.springboot.petclinic.services.map;
 
-import javax.persistence.Id;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
