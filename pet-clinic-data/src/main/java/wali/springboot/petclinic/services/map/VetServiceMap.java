@@ -2,12 +2,12 @@ package wali.springboot.petclinic.services.map;
 
 import org.springframework.stereotype.Service;
 import wali.springboot.petclinic.models.Vet;
-import wali.springboot.petclinic.services.VatService;
+import wali.springboot.petclinic.services.VetService;
 
 import java.util.Set;
 
 @Service
-public class VetServiceMap extends AbstractService<Vet,Long>implements VatService {
+public class VetServiceMap extends AbstractService<Vet,Long>implements VetService {
 
     @Override
     public Set<Vet> findAll() {
