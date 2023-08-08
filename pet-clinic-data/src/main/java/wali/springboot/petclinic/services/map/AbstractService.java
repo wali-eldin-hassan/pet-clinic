@@ -1,13 +1,12 @@
 package wali.springboot.petclinic.services.map;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import wali.springboot.petclinic.models.BaseEntity;
 
-public abstract class AbstractService <T,ID>{
+import java.util.*;
 
-    protected Map<ID,T> map =new HashMap<>();
+public abstract class AbstractService <T extends BaseEntity,ID extends Long>{
+
+    protected Map<Long,T> map =new HashMap<>();
 
     Set<T>findAll(){
         return  new HashSet<>(map.values());
@@ -17,9 +16,18 @@ public abstract class AbstractService <T,ID>{
         return  map.get(id);
     }
 
-    T save(ID id, T object)
+    T save(T object)
     {
-        map.put(id,object);
+        if (object!= null)
+        {
+            if (object.getId()==null)
+            {
+                object.setId(getNextId());
+            }
+            map.put(object.getId(),object);
+        }else {
+            throw new RuntimeException("Object can't be null");
+        }
         return  object;
     }
 
@@ -31,6 +39,19 @@ public abstract class AbstractService <T,ID>{
     void  delete(T object)
     {
         map.entrySet().removeIf(entry->entry.getValue().equals(object));
+    }
+
+    public  Long getNextId()
+    {
+        Long nextId=null;
+       try {
+           nextId= Collections.max(map.keySet())+1;
+       }
+       catch (NoSuchElementException e)
+       {
+           nextId=1L;
+       }
+        return nextId;
     }
 
 }
