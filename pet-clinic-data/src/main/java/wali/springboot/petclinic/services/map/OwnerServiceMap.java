@@ -1,10 +1,12 @@
 package wali.springboot.petclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import wali.springboot.petclinic.models.Owner;
 import wali.springboot.petclinic.services.OwnerService;
 
 import java.util.Set;
 
+@Service
 
 public class OwnerServiceMap extends AbstractService<Owner,Long> implements OwnerService {
 
