@@ -6,8 +6,6 @@ import wali.springboot.petclinic.models.Owner;
 import wali.springboot.petclinic.models.Vet;
 import wali.springboot.petclinic.services.OwnerService;
 import wali.springboot.petclinic.services.VatService;
-import wali.springboot.petclinic.services.map.OwnerServiceMap;
-import wali.springboot.petclinic.services.map.VetServiceMap;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -17,10 +15,11 @@ public class DataLoader implements CommandLineRunner {
 
 
 
- public DataLoader()
+ public DataLoader(OwnerService ownerService, VatService vatService)
  {
-ownerService = new OwnerServiceMap();
-vatService=new VetServiceMap();
+     this.ownerService = ownerService;
+
+     this.vatService = vatService;
  }
     @Override
     public void run(String... args) throws Exception {
