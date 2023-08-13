@@ -1,8 +1,15 @@
 package wali.springboot.petclinic.models;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Owner extends Person{
+
+    private  String city;
+
+    private String phone;
+
+    private Set<Pet> pets = new HashSet<>();
 
     private  String address;
 
@@ -38,11 +45,7 @@ public class Owner extends Person{
         this.pets = pets;
     }
 
-    private  String city;
 
-    private String phone;
-
-    private Set<Pet> pets;
 
 
 }
