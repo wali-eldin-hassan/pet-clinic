@@ -10,4 +10,11 @@ public class HomeController {
     {
         return "home";
     }
+    @RequestMapping({"/oups"})
+    public String ops()
+    {
+        return "errors/comingsoon";
+    }
 }
+
+
