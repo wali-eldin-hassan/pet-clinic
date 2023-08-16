@@ -15,7 +15,6 @@ public class Visit  extends  BaseEntity{
     @Column(name = "description")
     private String description;
 
-
     public LocalDate getDate() {
         return date;
     }
