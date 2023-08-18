@@ -1,20 +1,23 @@
 package wali.springboot.petclinic.services.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import wali.springboot.petclinic.models.Speciality;
 import wali.springboot.petclinic.models.Vet;
-import wali.springboot.petclinic.services.SpecialitiyService;
+import wali.springboot.petclinic.services.SpecialtyService;
 import wali.springboot.petclinic.services.VetService;
 
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
+
 public class VetServiceMap extends AbstractService<Vet,Long>implements VetService {
 
-    private  final SpecialitiyService specialitiyService;
+    private  final SpecialtyService specialtyService;
 
-    public VetServiceMap(SpecialitiyService specialitiyService) {
-        this.specialitiyService = specialitiyService;
+    public VetServiceMap(SpecialtyService specialtyService) {
+        this.specialtyService = specialtyService;
     }
 
     @Override
@@ -33,7 +36,7 @@ public class VetServiceMap extends AbstractService<Vet,Long>implements VetServic
             object.getSpecialities().forEach(speciality -> {
                 if(speciality.getId()== null)
                 {
-                    Speciality savedSpeciality=specialitiyService.save(speciality);
+                    Speciality savedSpeciality= specialtyService.save(speciality);
                     speciality.setId(savedSpeciality.getId());
                 }
             });

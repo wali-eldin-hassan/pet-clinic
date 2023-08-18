@@ -1,7 +1,7 @@
 package wali.springboot.petclinic.repostories;
 
+import org.springframework.data.repository.CrudRepository;
 import wali.springboot.petclinic.models.Speciality;
-import wali.springboot.petclinic.services.CrudService;
 
-public interface SpecialityRepository extends CrudService<Speciality,Long> {
+public interface SpecialityRepository extends CrudRepository<Speciality,Long> {
 }

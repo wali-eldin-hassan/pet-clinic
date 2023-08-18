@@ -14,15 +14,15 @@ public class DataLoader implements CommandLineRunner {
 
     private final PetTypeService petTypeService;
 
-    private final SpecialitiyService specialitiyService;
+    private final SpecialtyService specialtyService;
 
     private final VisitServices visitServices;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialitiyService specialitiyService, VisitServices visitServices) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService, VisitServices visitServices) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
-        this.specialitiyService = specialitiyService;
+        this.specialtyService = specialtyService;
         this.visitServices = visitServices;
     }
 
@@ -53,16 +53,16 @@ public class DataLoader implements CommandLineRunner {
         //Speciality bootStrap
         Speciality radiology= new Speciality();
         radiology.setDescription("Radiology");
-        Speciality savedRadiology=specialitiyService.save(radiology);
+        Speciality savedRadiology= specialtyService.save(radiology);
 
         Speciality surgery= new Speciality();
         surgery.setDescription("Surgery");
-        Speciality savedSurgery=specialitiyService.save(surgery);
+        Speciality savedSurgery= specialtyService.save(surgery);
 
 
         Speciality dentistry= new Speciality();
         dentistry.setDescription("Dentistry");
-        Speciality savedDentistry=specialitiyService.save(dentistry);
+        Speciality savedDentistry= specialtyService.save(dentistry);
 
         System.out.println("Loaded PetType ....");
 
