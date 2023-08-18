@@ -1,10 +1,12 @@
 package wali.springboot.petclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import wali.springboot.petclinic.models.Visit;
 import wali.springboot.petclinic.services.VisitServices;
 
 import java.util.Set;
 
+@Service
 public class VisitMapService  extends AbstractService<Visit,Long> implements VisitServices {
     @Override
     public Set<Visit> findAll() {
