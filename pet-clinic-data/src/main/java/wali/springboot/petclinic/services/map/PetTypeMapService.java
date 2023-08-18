@@ -1,5 +1,6 @@
 package wali.springboot.petclinic.services.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import wali.springboot.petclinic.models.Pet;
 import wali.springboot.petclinic.models.PetType;
@@ -8,6 +9,8 @@ import wali.springboot.petclinic.services.PetTypeService;
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
+
 public class PetTypeMapService extends AbstractService<PetType,Long>implements PetTypeService {
     @Override
     public Set<PetType> findAll() {

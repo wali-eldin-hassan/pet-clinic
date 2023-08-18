@@ -1,5 +1,6 @@
 package wali.springboot.petclinic.services.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import wali.springboot.petclinic.models.Owner;
 import wali.springboot.petclinic.models.Pet;
@@ -10,7 +11,7 @@ import wali.springboot.petclinic.services.PetTypeService;
 import java.util.Set;
 
 @Service
-
+@Profile({"default","map"})
 public class OwnerServiceMap extends AbstractService<Owner,Long> implements OwnerService {
 
     private  final PetService petService;

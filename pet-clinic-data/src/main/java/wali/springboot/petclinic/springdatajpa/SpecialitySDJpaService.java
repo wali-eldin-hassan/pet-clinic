@@ -2,10 +2,9 @@ package wali.springboot.petclinic.springdatajpa;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-import wali.springboot.petclinic.models.Pet;
 import wali.springboot.petclinic.models.Speciality;
 import wali.springboot.petclinic.repostories.SpecialityRepository;
-import wali.springboot.petclinic.services.SpecialitiyService;
+import wali.springboot.petclinic.services.SpecialtyService;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,10 +14,10 @@ import java.util.Set;
 
 // TODO: 17/08/2023
 // Make sure it's work
-public class SpecialitiySDJpaServcies implements SpecialitiyService {
+public class SpecialitySDJpaService implements SpecialtyService {
     private final SpecialityRepository specialityRepository;
 
-    public SpecialitiySDJpaServcies(SpecialityRepository specialityRepository) {
+    public SpecialitySDJpaService(SpecialityRepository specialityRepository) {
         this.specialityRepository = specialityRepository;
     }
 
@@ -26,13 +25,13 @@ public class SpecialitiySDJpaServcies implements SpecialitiyService {
     public Set<Speciality> findAll() {
 
         Set<Speciality>specialities=new HashSet<>();
-        specialityRepository.findAll().addAll(specialities);
+        specialityRepository.findAll().forEach(specialities::add);
         return specialities;
     }
 
     @Override
     public Speciality findById(Long aLong) {
-        return specialityRepository.findById(aLong);
+        return specialityRepository.findById(aLong).orElse(null);
     }
 
     @Override
